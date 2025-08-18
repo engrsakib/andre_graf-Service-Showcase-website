@@ -1,9 +1,19 @@
-import Image from "next/image";
+"use client"
+
+import HeroSection from "@/components/hero-section"
+import { useLanguage } from "@/context/language-context"
+
+
+
 
 export default function Home() {
+  const { t } = useLanguage()
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="min-h-screen bg-purple-100">
+      <HeroSection />
+
       
     </div>
-  );
+  )
 }

@@ -33,7 +33,7 @@ const LanguageSelector = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 text-sm text-gray-700 hover:text-purple-600 transition-colors"
+        className="flex items-center space-x-2 bg-[#B974FF6E] px-3 py-2.5 rounded text-sm text-gray-700 hover:text-purple-600 transition-colors"
       >
         <Image
           src={selectedLanguage?.flag}
