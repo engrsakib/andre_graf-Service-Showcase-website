@@ -1,7 +1,9 @@
 "use client"
 
+import { useLanguage } from "@/context/language-context"
+import Image from "next/image"
 import { useState } from "react"
-import { useLanguage } from "../contexts/language-context"
+
 
 const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -10,12 +12,12 @@ const LanguageSelector = () => {
   const languages = [
     {
       name: "English",
-      flag: "🇺🇸",
+      flag: "/usa.png",
       code: "en",
     },
     {
       name: "German",
-      flag: "🇩🇪",
+      flag: "/germany.png",
       code: "de",
     },
   ]
@@ -33,7 +35,12 @@ const LanguageSelector = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 text-sm text-gray-700 hover:text-purple-600 transition-colors"
       >
-        <span className="text-lg">{selectedLanguage?.flag}</span>
+        <Image
+          src={selectedLanguage?.flag}
+          alt={`${selectedLanguage?.name} flag`}
+          width={20}
+          height={20}
+        />
         <span>{selectedLanguage?.name}</span>
         <svg
           className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
@@ -53,7 +60,12 @@ const LanguageSelector = () => {
               onClick={() => handleLanguageSelect(language)}
               className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600 flex items-center space-x-2 transition-colors"
             >
-              <span className="text-lg">{language.flag}</span>
+              <Image
+                src={language.flag}
+                alt={`${language.name} flag`}
+                width={20}
+                height={20}
+              />
               <span>{language.name}</span>
             </button>
           ))}
