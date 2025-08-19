@@ -24,7 +24,7 @@ export default function NotFoundWrapper() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center px-4">
       <div className="text-center max-w-md mx-auto">
-        <div className="text-8xl md:text-9xl font-bold text-red-400 mb-8 leading-none">404</div>
+        <div className="text-8xl md:text-9xl font-bold mb-8 leading-none bg-gradient-to-b from-[#E56E70] to-[#E0AEAF] bg-clip-text text-transparent">404</div>
 
         <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">{currentContent.title}</h1>
 
@@ -32,7 +32,7 @@ export default function NotFoundWrapper() {
 
         <Link
           href="/"
-          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium px-8 py-3 rounded-full transition-colors duration-200 text-base"
+          className="inline-block px-8 py-4 max-sm:w-full w-[219px] bg-gradient-to-r from-[#5E8CFF] via-[#7B81FF] to-[#C78EFF] text-white font-semibold rounded-full h-[58px] transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           {currentContent.buttonText}
         </Link>
