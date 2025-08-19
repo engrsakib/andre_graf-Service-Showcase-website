@@ -29,7 +29,7 @@ export default function HeroSection() {
   const content = heroContent[currentLanguage]
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12 lg:py-20">
+    <section className="max-w-[80%] mx-auto px-6 py-12 lg:py-20">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* Mobile: Robot image first */}
         <div className="lg:hidden w-full flex justify-center">
@@ -51,10 +51,10 @@ export default function HeroSection() {
           <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl">{content.description}</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <button className="px-8 py-4 bg-gradient-to-r from-[#5E8CFF] via-[#7B81FF] to-[#C78EFF] text-white font-semibold rounded-full h-[58px] w-[180px] transition-all duration-300 shadow-lg hover:shadow-xl">
               {content.getStarted}
             </button>
-            <button className="px-8 py-4 border-2 border-purple-600 text-purple-600 font-semibold rounded-full hover:bg-purple-50 transition-all duration-300">
+            <button className="px-8 py-4 border-2 border-purple-600 text-purple-600 font-semibold h-[58px] w-[180px] rounded-full hover:bg-purple-50 transition-all duration-300">
               {content.contactUs}
             </button>
           </div>
