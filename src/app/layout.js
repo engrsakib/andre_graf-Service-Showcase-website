@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/language-context";
 import Navigation from "@/components/navigation";
+import FooterWrapper from "@/components/footer-wrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <LanguageProvider>
         <Navigation />
         {children}
+        <FooterWrapper />
         </LanguageProvider>
       </body>
     </html>

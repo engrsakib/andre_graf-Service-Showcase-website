@@ -97,10 +97,10 @@ export default function HeroSection() {
             <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl">{content.description}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="px-8 py-4 bg-gradient-to-r from-[#5E8CFF] via-[#7B81FF] to-[#C78EFF] text-white font-semibold rounded-full h-[58px] w-[180px] transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="px-8 py-4 max-sm:w-full bg-gradient-to-r from-[#5E8CFF] via-[#7B81FF] to-[#C78EFF] text-white font-semibold rounded-full h-[58px] w-[180px] transition-all duration-300 shadow-lg hover:shadow-xl">
                 {content.getStarted}
               </button>
-              <button className="px-8 py-4 border-2 border-purple-600 text-purple-600 font-semibold h-[58px] w-[180px] rounded-full hover:bg-purple-50 transition-all duration-300">
+              <button className="px-8 py-4 max-sm:w-full border-2 border-purple-600 text-purple-600 font-semibold h-[58px] w-[180px] rounded-full hover:bg-purple-50 transition-all duration-300">
                 {content.contactUs}
               </button>
             </div>
