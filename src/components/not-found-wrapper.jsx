@@ -24,7 +24,7 @@ export default function NotFoundWrapper() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center px-4">
       <div className="text-center max-w-md mx-auto">
-        <div className="text-8xl md:text-9xl font-bold mb-8 leading-none bg-gradient-to-b from-[#E56E70] to-[#E0AEAF] bg-clip-text text-transparent">404</div>
+        <div className="text-8xl md:text-[168px] font-bold mb-8 leading-none bg-gradient-to-b from-[#E56E70] to-[#E0AEAF] bg-clip-text text-transparent">404</div>
 
         <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">{currentContent.title}</h1>
 
