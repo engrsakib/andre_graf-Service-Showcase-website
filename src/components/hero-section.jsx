@@ -27,21 +27,11 @@ export default function HeroSection() {
   const content = heroContent[currentLanguage]
 
   return (
-    <section className="relative bg-[#F5F3F8] overflow-hidden">
-      {/* Gradient lighting effect from navbar */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-transparent"></div>
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-purple-100/50 to-transparent"></div>
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-100/35 to-transparent"></div>
+    <section className="relative -top-1  overflow-hidden">
       
-      {/* Left side vertical gradient */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-purple-200/60 via-pink-100/45 to-transparent"></div>
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-blue-100/40 to-transparent"></div>
-      
-      {/* Right side vertical gradient */}
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-purple-200/60 via-pink-100/45 to-transparent"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-blue-100/40 to-transparent"></div>
+    
       {/* Top left corner decoration */}
-      <div className="absolute top-0 left-0 w-40 h-40 opacity-30">
+      <div className="absolute -top-[173px] -left-[-159px] w-40 h-40 opacity-30">
         <div className="absolute top-4 left-4 w-3 h-3 bg-purple-300 rounded-full"></div>
         <div className="absolute top-8 left-12 w-2 h-2 bg-blue-300 rounded-full"></div>
         <div className="absolute top-12 left-8 w-1.5 h-1.5 bg-pink-300 rounded-full"></div>
@@ -51,7 +41,7 @@ export default function HeroSection() {
       </div>
 
       {/* Top right corner decoration */}
-      <div className="absolute top-0 right-0 w-40 h-40 opacity-30">
+      <div className="absolute -top-[173px] left-[1202px] w-40 h-40 opacity-30">
         <div className="absolute top-6 right-6 w-2.5 h-2.5 bg-pink-300 rounded-full"></div>
         <div className="absolute top-12 right-12 w-1.5 h-1.5 bg-purple-300 rounded-full"></div>
         <div className="absolute top-8 right-20 w-2 h-2 bg-blue-300 rounded-full"></div>
@@ -60,21 +50,9 @@ export default function HeroSection() {
         <div className="absolute top-20 right-14 w-4 h-0.5 bg-purple-200 rounded-full transform rotate-30"></div>
       </div>
 
-      {/* Bottom left corner decoration */}
-      <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20">
-        <div className="absolute bottom-6 left-8 w-2 h-2 bg-purple-300 rounded-full"></div>
-        <div className="absolute bottom-12 left-4 w-1.5 h-1.5 bg-blue-300 rounded-full"></div>
-        <div className="absolute bottom-8 left-16 w-1 h-1 bg-pink-300 rounded-full"></div>
-        <div className="absolute bottom-4 left-12 w-3 h-0.5 bg-purple-200 rounded-full transform rotate-60"></div>
-      </div>
+      
 
-      {/* Bottom right corner decoration */}
-      <div className="absolute bottom-0 right-0 w-32 h-32 opacity-20">
-        <div className="absolute bottom-8 right-6 w-2 h-2 bg-pink-300 rounded-full"></div>
-        <div className="absolute bottom-4 right-12 w-1.5 h-1.5 bg-purple-300 rounded-full"></div>
-        <div className="absolute bottom-12 right-8 w-1 h-1 bg-blue-300 rounded-full"></div>
-        <div className="absolute bottom-6 right-16 w-3 h-0.5 bg-purple-200 rounded-full transform -rotate-30"></div>
-      </div>
+     
 
       <div className="max-w-7xl mx-auto px-6 py-12 lg:py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">

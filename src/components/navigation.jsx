@@ -22,7 +22,7 @@ const Navigation = () => {
   ]
 
   return (
-    <nav className={`w-full px-4 md:px-6 py-4 ${isHomePage ? "bg-purple-100" : "bg-white border-b border-gray-200"}`}>
+    <nav className={`w-full px-4 md:px-6 py-4 ${isHomePage ? "bg-transparent" : "bg-white border-b border-gray-200"}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <NavLink href="/" className="flex items-center space-x-2 hover:text-gray-800">
           <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
@@ -31,9 +31,9 @@ const Navigation = () => {
           <span className="text-lg md:text-xl font-semibold text-gray-800">Logoipsum</span>
         </NavLink>
 
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-8 !text-[18px]">
           {navItems.map((item, index) => (
-            <NavLink key={index} href={item.href}>
+            <NavLink key={index} href={item.href} >
               {item.name}
             </NavLink>
           ))}
