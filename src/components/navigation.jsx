@@ -31,7 +31,7 @@ const Navigation = () => {
           <span className="text-lg md:text-xl font-semibold text-gray-800">Logoipsum</span>
         </NavLink>
 
-        <div className="hidden md:flex items-center space-x-8 !text-[18px]">
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, index) => (
             <NavLink key={index} href={item.href} >
               {item.name}
