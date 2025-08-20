@@ -1,8 +1,14 @@
 "use client"
 
-
 import { useLanguage } from "@/context/language-context"
 import Image from "next/image"
+
+/*
+  Pure JSX version (no TypeScript, no shadcn).
+  Tailwind utilities only.
+  Goal: approximate the provided design (numbers on left, floating white cards,
+  dual images on right, customer overlay card below images).
+*/
 
 export default function HowItWorksSection() {
   const { currentLanguage } = useLanguage()
@@ -29,6 +35,7 @@ export default function HowItWorksSection() {
         },
       ],
       happyCustomers: "Happy Customer",
+      count: "10K+",
     },
     de: {
       title: "Wie es funktioniert",
@@ -52,104 +59,144 @@ export default function HowItWorksSection() {
         },
       ],
       happyCustomers: "Zufriedene Kunden",
+      count: "10K+",
     },
   }
 
-  const currentContent = content[currentLanguage]
+  const t = content[currentLanguage] || content.en
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 md:py-28 bg-[#F7F7F8]">
+      <div className="max-w-7xl mx-auto px-5 md:px-10">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">{currentContent.title}</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">{currentContent.subtitle}</p>
+        <div className="text-center mb-16">
+          <h2 className="text-[38px] md:text-[46px] font-bold leading-tight tracking-tight text-gray-900">
+            {t.title}
+          </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-gray-600 max-w-2xl mx-auto">
+            {t.subtitle}
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left Side - Steps with conditional number positioning */}
-          <div className="space-y-8">
-            {currentContent.steps.map((step, index) => (
-              <div
-                key={step.number}
-                className={`flex items-start gap-4 ${
-                  index === 1 ? "flex-row-reverse items-center justify-center" : ""
-                }`}
-              >
-                <div className="flex-shrink-0">
-                  <span className="text-6xl font-bold text-gray-300 leading-none block">{step.number}</span>
-                </div>
-                <div className="flex-1 mt-2">
-                  <div className="bg-white rounded-xl px-6 py-4 shadow-sm border border-gray-100">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <div className="grid lg:grid-cols-[1fr_480px] xl:grid-cols-[1fr_520px] gap-20 items-start">
+          {/* Steps + Numbers */}
+          <div className="relative">
+            {/* ambient glow */}
+            <div className="pointer-events-none absolute -top-8 -left-20 -right-8 -bottom-10">
+              <div className="w-full h-full bg-[radial-gradient(circle_at_40%_45%,rgba(120,130,255,0.25),rgba(120,130,255,0.10)_38%,transparent_70%)]" />
+            </div>
+
+            <ul className="relative space-y-9">
+              {t.steps.map((step, idx) => {
+                const isMiddle = idx === 1
+                return (
+                  <li
+                    key={step.number}
+                    className={
+                      "flex items-stretch " + (isMiddle ? "flex-row-reverse" : "")
+                    }
+                  >
+                    {/* Number */}
+                    <div
+                      className={
+                        "flex items-center " +
+                        (isMiddle ? "pl-8 md:pl-12" : "pr-8 md:pr-12")
+                      }
+                    >
+                      <span className="select-none font-semibold text-[60px] md:text-[62px] leading-none text-gray-300/90 tracking-tight">
+                        {step.number}
+                      </span>
+                    </div>
+
+                    {/* Card */}
+                    <div
+                      className={
+                        "w-full max-w-sm transition-transform " +
+                        (isMiddle
+                          ? "mr-auto -translate-x-2 md:-translate-x-4"
+                          : "ml-auto translate-x-2 md:translate-x-4")
+                      }
+                    >
+                      <div className="relative bg-white rounded-[14px] border border-gray-100 shadow-sm px-6 py-5 md:px-7 md:py-5 overflow-hidden">
+                        <div className="absolute inset-0 opacity-[0.4] pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.12),transparent_60%)]" />
+                        <h3 className="relative text-[15px] font-semibold text-gray-900 mb-1.5">
+                          {step.title}
+                        </h3>
+                        <p className="relative text-[13px] leading-relaxed text-gray-600">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
 
-          {/* Right Side - Images */}
-          <div className="relative">
-            <div className="flex gap-4">
-              {/* Left Image - Robot Hand - Smaller */}
-              <div className="relative overflow-hidden rounded-2xl flex-1">
+          {/* Images + Overlay */}
+          <div className="relative flex flex-col items-center">
+            <div className="flex gap-6">
+              {/* Left small image */}
+              <div className="relative w-[190px] md:w-[200px] h-[270px] md:h-[285px] rounded-2xl overflow-hidden shadow-sm bg-slate-200">
                 <Image
-                  src="https://plus.unsplash.com/premium_photo-1755387617031-1375c148ecd3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="AI Robot Hand"
-                  width={300}
-                  height={400}
-                  className="w-full h-[400px] object-cover"
+                  src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=600&auto=format&fit=crop"
+                  alt="Robotic hand and tech visualization"
+                  fill
+                  sizes="200px"
+                  className="object-cover"
+                  priority
                 />
               </div>
 
-              {/* Right Image - Person with Tech - Larger with customer overlay */}
-              <div className="relative overflow-hidden rounded-2xl flex-[1.3]">
+              {/* Right large image */}
+              <div className="relative w-[255px] md:w-[265px] h-[360px] md:h-[372px] rounded-2xl overflow-hidden shadow-sm bg-slate-200">
                 <Image
-                  src="https://images.unsplash.com/photo-1751225750479-43ad27b94fa0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Person in Tech Environment"
-                  width={400}
-                  height={400}
-                  className="w-full h-[400px] object-cover"
+                  src="https://images.unsplash.com/photo-1553484771-371a605b060b?q=80&w=800&auto=format&fit=crop"
+                  alt="Advanced technology lab environment"
+                  fill
+                  sizes="260px"
+                  className="object-cover"
+                  priority
                 />
+              </div>
+            </div>
 
-                {/* Customer Overlay */}
-                <div className="absolute bottom-6 left-6 bg-white rounded-xl px-4 py-3 shadow-lg border border-gray-100">
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-2">
-                      <Image
-                        src="/placeholder.svg?height=32&width=32"
-                        alt="Customer 1"
-                        width={32}
-                        height={32}
-                        className="w-8 h-8 rounded-full border-2 border-white"
-                      />
-                      <Image
-                        src="/placeholder.svg?height=32&width=32"
-                        alt="Customer 2"
-                        width={32}
-                        height={32}
-                        className="w-8 h-8 rounded-full border-2 border-white"
-                      />
-                      <Image
-                        src="/placeholder.svg?height=32&width=32"
-                        alt="Customer 3"
-                        width={32}
-                        height={32}
-                        className="w-8 h-8 rounded-full border-2 border-white"
-                      />
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-blue-600">10K+</div>
-                      <div className="text-xs text-gray-600">{currentContent.happyCustomers}</div>
-                    </div>
+            {/* Overlay stats card */}
+            <div className="absolute -bottom-12 left-1/2 -translate-x-1/2">
+              <div className="flex items-center gap-4 bg-white/95 backdrop-blur-sm border border-gray-100 shadow-md rounded-xl px-5 py-3">
+                <div className="flex -space-x-2">
+                  <Avatar src="https://i.pravatar.cc/48?img=12" alt="User A" />
+                  <Avatar src="https://i.pravatar.cc/48?img=32" alt="User B" />
+                  <Avatar src="https://i.pravatar.cc/48?img=56" alt="User C" />
+                  <Avatar src="https://i.pravatar.cc/48?img=24" alt="User D" />
+                </div>
+                <div>
+                  <div className="text-[15px] font-semibold text-blue-600 leading-none">
+                    {t.count}
+                  </div>
+                  <div className="text-[11px] text-gray-600 mt-1 tracking-tight">
+                    {t.happyCustomers}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </section>
+  )
+}
+
+function Avatar({ src, alt }) {
+  return (
+    <div className="w-9 h-9 rounded-full ring-2 ring-white overflow-hidden bg-gray-200">
+      <Image
+        src={src}
+        alt={alt}
+        width={36}
+        height={36}
+        className="w-full h-full object-cover"
+      />
+    </div>
   )
 }
