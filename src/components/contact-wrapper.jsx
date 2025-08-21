@@ -70,7 +70,7 @@ export default function ContactWrapper() {
                 </div>
 
                 {/* Address */}
-                <div className="flex items-start space-x-4">
+                {/* <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
                     <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -92,7 +92,7 @@ export default function ContactWrapper() {
                     <p className="text-gray-600 font-medium">{content.contactInfo.address.value}</p>
                     <p className="text-sm text-gray-500 mt-1">{content.contactInfo.address.description}</p>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Response Time */}
                 <div className="flex items-start space-x-4">
