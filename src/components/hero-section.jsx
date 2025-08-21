@@ -104,6 +104,8 @@ export default function HeroSection() {
       </div>
 
       <div className="w-[1440px] h-[1136px] bg-[url('/linier.png')] absolute top-0 left-0 bg-no-repeat"></div>
+     <div className="w-[1440px] h-[1136px] bg-[url('/linier.png')] absolute top-0 right-0 bg-no-repeat bg-right scale-x-[-1]"></div>
+
     </section>
   );
 }
